@@ -19,13 +19,17 @@ The login and OTP screens also include one-tap demo buttons.
 
 ## Preview
 
-| Login | Home |
+| Login | OTP verification |
 |---|---|
-| ![Login screen](screenshots/login.png) | ![Home screen](screenshots/home.png) |
+| ![Login screen](screenshots/login.png) | ![OTP verification](screenshots/verify.png) |
 
-| Restaurant detail | Cart |
+| Home | Restaurant detail |
 |---|---|
-| ![Restaurant detail](screenshots/detail.png) | ![Cart](screenshots/cart.png) |
+| ![Home screen](screenshots/home.png) | ![Restaurant detail](screenshots/detail.png) |
+
+| Cart | |
+|---|---|
+| ![Cart](screenshots/cart.png) | |
 
 ## Screens
 

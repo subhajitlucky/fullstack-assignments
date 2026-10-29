@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Bag, Minus, Plus, Star } from '../components/Icons.jsx';
+import { ArrowLeft, Bag, Minus, Plus } from '../components/Icons.jsx';
 import { SmartImage } from '../components/SmartImage.jsx';
 import { useCart } from '../lib/cart.jsx';
 import { foodImages, formatAddress, restaurantImage } from '../lib/data.js';
@@ -56,7 +56,6 @@ export function RestaurantPage() {
   }
 
   const heroImage = foodImages[index % foodImages.length];
-  const total = selectedPortion.price * quantity;
 
   const addToCart = () => {
     addItem({
@@ -95,9 +94,6 @@ export function RestaurantPage() {
           <Bag size={19} />
           {count > 0 && <span className="cart-count">{count}</span>}
         </button>
-        <span className="detail-rating">
-          <Star size={14} /> 4.5 <i /> 20–30 min
-        </span>
       </div>
 
       <div className="detail-content">
@@ -142,13 +138,12 @@ export function RestaurantPage() {
                 checked={portionId === portion.id}
                 onChange={() => setPortionId(portion.id)}
               />
-              <span className="portion-radio" aria-hidden="true" />
               <span className="portion-name">
-                {portion.label}
-                <small>{portion.detail}</small>
+                {portion.label} <small>({portion.detail})</small>
               </span>
               <span className="portion-dots" aria-hidden="true" />
               <span className="portion-price">₹{portion.price}</span>
+              <span className="portion-radio" aria-hidden="true" />
             </label>
           ))}
         </div>
@@ -156,7 +151,7 @@ export function RestaurantPage() {
 
       <div className="detail-footer">
         <button type="button" className="primary-button" onClick={addToCart}>
-          Add to cart · ₹{total}
+          Add to cart
         </button>
       </div>
     </main>

@@ -176,7 +176,7 @@ export function VerifyPage() {
                 aria-label={`Digit ${index + 1}`}
                 autoFocus={index === 0}
               />
-              {index === 2 && <span className="otp-separator">•</span>}
+              {index === 2 && <span className="otp-separator">-</span>}
             </div>
           ))}
         </div>
@@ -200,7 +200,7 @@ export function VerifyPage() {
         </button>
 
         <div className="auth-bottom">
-          <button className="primary-button" type="submit" disabled={loading || otp.length !== 6}>
+          <button className="primary-button" type="submit" disabled={loading}>
             {loading ? 'Verifying…' : 'Continue'}
           </button>
         </div>
