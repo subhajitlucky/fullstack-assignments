@@ -2,6 +2,8 @@
 
 A mobile-first restaurant discovery app built with React and Vite. It supports OTP authentication, restaurant browsing, search, restaurant details, and a demo cart.
 
+**Live demo:** [craving-web.vercel.app](https://craving-web.vercel.app)
+
 ## Demo access
 
 The staging API accepts the following demo account:
