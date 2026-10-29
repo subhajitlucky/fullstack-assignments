@@ -1,5 +1,7 @@
 # CRM API
 
+> The React frontend application is in [`frontend/`](frontend/README.md). The documentation below covers the backend REST API.
+
 REST API for a counselor CRM. Employees authenticate, view incoming student enquiries, and claim leads. A claimed lead is visible only to the counselor who claimed it.
 
 ## Features
