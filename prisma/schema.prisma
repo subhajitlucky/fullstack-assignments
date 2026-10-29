@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Employee {
+  id           String    @id @default(uuid())
+  name         String
+  email        String    @unique
+  passwordHash String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  enquiries    Enquiry[]
+
+  @@map("employees")
+}
+
+model Enquiry {
+  id             String    @id @default(uuid())
+  name           String
+  email          String
+  phone          String?
+  courseInterest String
+  message        String?
+  claimedById    String?
+  claimedAt      DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  claimedBy      Employee? @relation(fields: [claimedById], references: [id], onDelete: SetNull)
+
+  @@index([claimedById])
+  @@index([createdAt])
+  @@map("enquiries")
+}
