@@ -7,6 +7,10 @@ import { useAuth } from '../lib/auth.jsx';
 
 const DEMO_PHONE = '9818979450';
 
+function formatPhoneValue(value) {
+  return value.length > 5 ? `${value.slice(0, 5)} ${value.slice(5)}` : value;
+}
+
 export function LoginPage() {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
@@ -86,10 +90,9 @@ export function LoginPage() {
             inputMode="numeric"
             autoComplete="tel-national"
             aria-label="Mobile number"
-            placeholder="00000 00000"
-            value={phone}
+            placeholder="- 00000"
+            value={formatPhoneValue(phone)}
             onChange={handlePhoneChange}
-            maxLength={10}
           />
         </div>
 
