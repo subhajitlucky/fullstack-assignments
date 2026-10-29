@@ -420,6 +420,7 @@ input:focus-visible {
 }
 
 .key-back {
+  background: #fff;
   color: #333;
 }
 
@@ -1832,7 +1833,7 @@ input:focus-visible {
 
 .keypad .key:nth-last-child(2),
 .keypad .key:last-child {
-  margin-top: 16px;
+  margin-top: 0;
 }
 
 .key {
