@@ -1825,7 +1825,7 @@ input:focus-visible {
 .keypad {
   gap: 8px;
   margin: 22px -22px 0;
-  padding: 10px 10px 14px;
+  padding: 10px 10px calc(20px + env(safe-area-inset-bottom));
   border-radius: 0;
   background: #e4e7eb;
 }
