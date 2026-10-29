@@ -1,27 +1,10 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  Bag,
-  ChevronDown,
-  Clock,
-  LogOut,
-  MapPin,
-  Search,
-  Sliders,
-  Sparkle,
-  Star,
-  X,
-} from '../components/Icons.jsx';
+import { Bag, Clock, LogOut, Utensils, Star, X } from '../components/Icons.jsx';
 import { SmartImage } from '../components/SmartImage.jsx';
 import { useAuth } from '../lib/auth.jsx';
 import { useCart } from '../lib/cart.jsx';
-import {
-  foodImages,
-  formatAddress,
-  initials,
-  priceFor,
-  restaurantImage,
-} from '../lib/data.js';
+import { foodImages, formatAddress, priceFor, restaurantImage } from '../lib/data.js';
 import { useRestaurants } from '../lib/restaurants.jsx';
 
 function Skeleton() {
@@ -53,12 +36,11 @@ function Skeleton() {
 
 export function HomePage() {
   const navigate = useNavigate();
-  const { user, signOut } = useAuth();
+  const { signOut } = useAuth();
   const { count, openCart } = useCart();
   const { items, loading, error, refresh } = useRestaurants();
   const [query, setQuery] = useState('');
   const [sortAZ, setSortAZ] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const filtered = useMemo(() => {
     const search = query.trim().toLowerCase();
@@ -83,57 +65,27 @@ export function HomePage() {
   const popular = filtered.slice(0, 12);
   const openRestaurant = (id) => navigate(`/restaurant/${id}`);
 
+  const handleSignOut = () => {
+    signOut();
+    window.location.assign('/login');
+  };
+
   return (
     <main className="screen home-screen">
       <header className="home-header">
         <div className="location-block">
-          <span className="eyebrow">Current Location</span>
-          <div className="location-value">
-            <MapPin size={16} />
-            <span>Model Town, New Delhi</span>
-            <ChevronDown size={15} />
-          </div>
-        </div>
-
-        <div className="profile-wrap">
-          <button
-            className="avatar-button"
-            type="button"
-            onClick={() => setMenuOpen((current) => !current)}
-            aria-label="Open profile menu"
-            aria-expanded={menuOpen}
-          >
-            {initials(user?.name) || 'C'}
-          </button>
-          {menuOpen && (
-            <div className="profile-menu">
-              <div className="profile-menu-head">
-                <strong>Craving member</strong>
-                <span>+91 {user?.phone || ''}</span>
-              </div>
-              <button
-                type="button"
-                onClick={() => {
-                  setMenuOpen(false);
-                  signOut();
-                  window.location.assign('/login');
-                }}
-              >
-                <LogOut size={16} /> Sign out
-              </button>
-            </div>
-          )}
+          <span className="location-label">Current Locations</span>
+          <span className="location-value">Model Town, New Delhi</span>
         </div>
       </header>
 
       <div className="search-row">
         <label className="search-field">
-          <Search size={19} />
           <input
             type="search"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="Search restaurants"
+            placeholder="Karan"
             aria-label="Search restaurants"
           />
           {query && (
@@ -150,11 +102,11 @@ export function HomePage() {
           aria-label={sortAZ ? 'Reset sorting' : 'Sort restaurants A to Z'}
           title={sortAZ ? 'Sorted A–Z' : 'Sort A–Z'}
         >
-          <Sliders size={19} />
+          <Utensils size={22} />
         </button>
 
         <button type="button" className="square-button blue" onClick={openCart} aria-label="Open cart">
-          <Bag size={19} />
+          <Bag size={22} />
           {count > 0 && <span className="cart-count">{count}</span>}
         </button>
       </div>
@@ -175,16 +127,16 @@ export function HomePage() {
           <section className="section">
             <div className="section-head">
               <h2>Best Seller</h2>
-              <span className="section-note">{items.length} places nearby</span>
             </div>
 
-            <div className="best-scroll">
+            <div className="best-grid">
               {featured.map((restaurant, index) => (
                 <button
                   type="button"
                   className="best-card"
                   key={restaurant.restaurant_id}
                   onClick={() => openRestaurant(restaurant.restaurant_id)}
+                  aria-label={`${restaurant.restaurant_name}, ₹${priceFor(index)}`}
                 >
                   <span className="best-image-wrap">
                     <SmartImage
@@ -195,29 +147,22 @@ export function HomePage() {
                     />
                     <span className="best-price">₹{priceFor(index)}</span>
                   </span>
-                  <span className="best-name">{restaurant.restaurant_name}</span>
                 </button>
               ))}
             </div>
           </section>
 
-          <section className="promo-banner">
-            <div className="promo-copy">
-              <span className="promo-kicker">
-                <Sparkle size={14} /> Fresh from the kitchen
-              </span>
-              <h2>Experience our delicious new dish</h2>
-              <strong>30% OFF</strong>
-              <button
-                type="button"
-                className="promo-button"
-                onClick={() => featured[0] && openRestaurant(featured[0].restaurant_id)}
-              >
-                Order now
-              </button>
+          <section className="promo-wrap">
+            <div className="promo-banner">
+              <div className="promo-copy">
+                <h2>Experience our delicious new dish</h2>
+                <strong>30% OFF</strong>
+              </div>
+              <img src="/images/pizza.jpg" alt="Freshly baked pizza" className="promo-image" />
             </div>
-            <img src="/images/pizza.jpg" alt="Freshly baked pizza" className="promo-image" />
             <span className="promo-dots" aria-hidden="true">
+              <i />
+              <i />
               <i className="active" />
               <i />
               <i />
@@ -226,8 +171,7 @@ export function HomePage() {
 
           <section className="section popular-section">
             <div className="section-head">
-              <h2>Popular Restaurants</h2>
-              <span className="section-note">{filtered.length} found</span>
+              <h2>Popular Items</h2>
             </div>
 
             {popular.length === 0 ? (
@@ -284,10 +228,12 @@ export function HomePage() {
               </div>
             )}
           </section>
-
-          <p className="home-greeting">Good food, good mood.</p>
         </>
       )}
+
+      <button type="button" className="sign-out-link" onClick={handleSignOut}>
+        <LogOut size={14} /> Sign out
+      </button>
     </main>
   );
 }

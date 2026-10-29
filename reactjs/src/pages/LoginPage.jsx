@@ -70,10 +70,9 @@ export function LoginPage() {
       </button>
 
       <header className="auth-heading">
-        <p className="eyebrow">Welcome to Craving</p>
-        <h1>Sign up</h1>
+        <h1>Sign Up to Fastor</h1>
         <p className="muted">
-          Let us know your mobile number and we&apos;ll send you an OTP for verification.
+          Let us know your mobile number and we will send you an OTP for verification.
         </p>
       </header>
 
@@ -112,7 +111,7 @@ export function LoginPage() {
             {loading ? 'Sending OTP…' : 'Get OTP'}
           </button>
           <p className="terms">
-            By continuing, you accept the <span>Terms &amp; Conditions</span> and{' '}
+            By clicking, I accept the <span>Terms &amp; Conditions</span> and{' '}
             <span>Privacy Policy</span>.
           </p>
         </div>

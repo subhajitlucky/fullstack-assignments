@@ -2,6 +2,8 @@
 
 A mobile-first restaurant discovery app built with React and Vite. It supports OTP authentication, restaurant browsing, search, restaurant details, and a demo cart.
 
+> Part of the full-stack submission. The backend CRM API is in [`../nodejs/`](../nodejs/README.md).
+
 **Live demo:** [craving-web.vercel.app](https://craving-web.vercel.app)
 
 ## Demo access
@@ -29,7 +31,7 @@ The login and OTP screens also include one-tap demo buttons.
 
 - **Login** — mobile number entry with a custom keypad.
 - **Verification** — six-digit OTP entry, 30-second resend timer, and validation states.
-- **Home** — location header, search, Best Seller carousel, promotional banner, and a popular-restaurants list.
+- **Home** — location header, search, Best Seller grid, promotional banner, and a popular items list.
 - **Restaurant detail** — hero image, quantity selector, portion options, and Add to Cart.
 - **Cart** — quantity controls, subtotal, item removal, and a demo checkout.
 
@@ -48,7 +50,7 @@ No UI component library is used.
 ## Run locally
 
 ```bash
-cd frontend
+cd reactjs
 npm install
 npm run dev
 ```
@@ -83,7 +85,7 @@ The JWT is stored in `localStorage` under `craving.session`. A route guard redir
 ## Project structure
 
 ```
-frontend/
+reactjs/
 ├── public/
 │   ├── favicon.svg
 │   └── images/
@@ -119,5 +121,6 @@ frontend/
 - Restaurant names and addresses come from the API.
 - Local food photography is used as a reliable fallback when an API logo is missing or unavailable.
 - Cart contents persist across reloads in `localStorage`.
+- Typography and color tokens follow the supplied mobile design: Mulish for body copy, League Spartan for display headings, and Inter for the location header.
 - Component styles include focus states, keyboard support for the OTP fields, and reduced-motion support.
 - `npm audit` reports **0 vulnerabilities**.

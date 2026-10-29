@@ -150,7 +150,6 @@ export function VerifyPage() {
       </button>
 
       <header className="auth-heading">
-        <p className="eyebrow">Verification</p>
         <h1>6-digit code</h1>
         <p className="muted">
           Please enter the code we&apos;ve sent to <strong>{formatPhone(phone)}</strong>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Bag, Clock, Minus, Plus, Star } from '../components/Icons.jsx';
+import { ArrowLeft, Bag, Minus, Plus, Star } from '../components/Icons.jsx';
 import { SmartImage } from '../components/SmartImage.jsx';
 import { useCart } from '../lib/cart.jsx';
 import { foodImages, formatAddress, restaurantImage } from '../lib/data.js';
@@ -8,9 +8,9 @@ import { useRestaurants } from '../lib/restaurants.jsx';
 
 const portions = [
   { id: 'personal', label: 'Personal', detail: '4 slices', price: 249 },
-  { id: 'medium', label: 'Medium', detail: '8 slices', price: 449, popular: true },
-  { id: 'large', label: 'Large', detail: '12 slices', price: 649 },
-  { id: 'jumbo', label: 'Jumbo', detail: '16 slices', price: 849 },
+  { id: 'medium', label: 'Medium', detail: '8 slices', price: 449 },
+  { id: 'large', label: 'Family', detail: '10 slices', price: 649 },
+  { id: 'jumbo', label: 'Jumbo', detail: '12 slices', price: 849 },
 ];
 
 export function RestaurantPage() {
@@ -101,7 +101,6 @@ export function RestaurantPage() {
       </div>
 
       <div className="detail-content">
-        <p className="eyebrow">Featured dish</p>
         <div className="detail-price-row">
           <h1>₹{selectedPortion.price}</h1>
           <div className="stepper" aria-label="Quantity">
@@ -126,21 +125,8 @@ export function RestaurantPage() {
         <h2 className="detail-title">{restaurant.restaurant_name}</h2>
         <p className="detail-description">{formatAddress(restaurant)}</p>
 
-        <div className="detail-meta-row">
-          <span>
-            <Clock size={15} /> 20–30 min
-          </span>
-          <span>
-            <Star size={15} /> 4.5 (120+)
-          </span>
-          <span className="detail-offer">Free delivery</span>
-        </div>
-
-        <div className="detail-divider" />
-
         <div className="portion-heading">
-          <h3>Choose your portion</h3>
-          <span>Serves 1–4</span>
+          <h3>Personal portion</h3>
         </div>
 
         <div className="portion-list" role="radiogroup" aria-label="Choose your portion">
@@ -160,7 +146,6 @@ export function RestaurantPage() {
               <span className="portion-name">
                 {portion.label}
                 <small>{portion.detail}</small>
-                {portion.popular && <em>Popular</em>}
               </span>
               <span className="portion-dots" aria-hidden="true" />
               <span className="portion-price">₹{portion.price}</span>

@@ -34,17 +34,3 @@ export function formatAddress(restaurant) {
 export function priceFor(index) {
   return 149 + (index % 4) * 50;
 }
-
-export function initials(name = '') {
-  return name
-    .split(' ')
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0])
-    .join('')
-    .toUpperCase();
-}
-
-export function firstName(name = '') {
-  return name.split(' ').filter(Boolean)[0] || 'there';
-}

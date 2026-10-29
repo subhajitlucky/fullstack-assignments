@@ -41,15 +41,13 @@ export function ChevronDown({ size = 18, ...props }) {
   );
 }
 
-export function Sliders({ size = 20, ...props }) {
+export function Utensils({ size = 22, ...props }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}>
-      <path d="M4 7h10" />
-      <path d="M18 7h2" />
-      <path d="M4 17h2" />
-      <path d="M10 17h10" />
-      <circle cx="16" cy="7" r="2" />
-      <circle cx="8" cy="17" r="2" />
+      <path d="M7 3v6a2 2 0 0 0 4 0V3" />
+      <path d="M9 11v10" />
+      <path d="M16 3v18" />
+      <path d="M14 3c0 4 1 6 2 6s2-2 2-6" />
     </svg>
   );
 }
