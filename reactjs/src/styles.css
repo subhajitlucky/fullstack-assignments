@@ -1776,6 +1776,12 @@ input:focus-visible {
   letter-spacing: 0.1em;
 }
 
+.phone-input:focus,
+.phone-input:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
 .phone-input::placeholder {
   color: #9c9c9c;
   letter-spacing: 0.08em;
@@ -1947,6 +1953,11 @@ input:focus-visible {
   color: var(--ink);
   font-family: var(--font);
   font-size: 18px;
+}
+
+.search-field input:focus,
+.search-field input:focus-visible {
+  outline: none;
 }
 
 .search-field input::placeholder {
