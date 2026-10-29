@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Bag, Minus, Plus } from '../components/Icons.jsx';
+import { ArrowLeft, Minus, Plus } from '../components/Icons.jsx';
 import { SmartImage } from '../components/SmartImage.jsx';
 import { useCart } from '../lib/cart.jsx';
 import { foodImages, formatAddress, restaurantImage } from '../lib/data.js';
@@ -17,7 +17,7 @@ export function RestaurantPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { items, loading, error, refresh } = useRestaurants();
-  const { addItem, count, openCart } = useCart();
+  const { addItem } = useCart();
   const [quantity, setQuantity] = useState(3);
   const [portionId, setPortionId] = useState('medium');
 
@@ -79,21 +79,6 @@ export function RestaurantPage() {
           loading="eager"
         />
         <div className="detail-hero-shade" aria-hidden="true" />
-        <button
-          type="button"
-          className="floating-button back"
-          onClick={() => {
-            if (window.history.length > 1) navigate(-1);
-            else navigate('/');
-          }}
-          aria-label="Go back"
-        >
-          <ArrowLeft />
-        </button>
-        <button type="button" className="floating-button cart" onClick={openCart} aria-label="Open cart">
-          <Bag size={19} />
-          {count > 0 && <span className="cart-count">{count}</span>}
-        </button>
       </div>
 
       <div className="detail-content">

@@ -1214,60 +1214,6 @@ input:focus-visible {
   pointer-events: none;
 }
 
-.floating-button {
-  position: absolute;
-  top: 16px;
-  display: grid;
-  width: 38px;
-  height: 38px;
-  place-items: center;
-  border: 0;
-  border-radius: 50%;
-  cursor: pointer;
-  backdrop-filter: blur(7px);
-}
-
-.floating-button.back {
-  left: 18px;
-  background: rgba(255, 255, 255, 0.93);
-  color: #222;
-}
-
-.floating-button.cart {
-  right: 18px;
-  background: var(--orange);
-  color: #fff;
-  box-shadow: 0 8px 20px rgba(255, 88, 1, 0.3);
-}
-
-.detail-rating {
-  position: absolute;
-  bottom: 16px;
-  left: 18px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.94);
-  color: #222;
-  font-size: 9px;
-  font-weight: 600;
-  backdrop-filter: blur(8px);
-}
-
-.detail-rating svg {
-  color: var(--orange);
-}
-
-.detail-rating i {
-  width: 3px;
-  height: 3px;
-  margin: 0 2px;
-  border-radius: 50%;
-  background: #bbb;
-}
-
 .detail-content {
   padding: 22px 22px 120px;
 }
@@ -2222,18 +2168,6 @@ input:focus-visible {
 .detail-hero,
 .detail-hero-shade {
   border-radius: 30px;
-}
-
-.floating-button {
-  top: 32px;
-}
-
-.floating-button.back {
-  left: 32px;
-}
-
-.floating-button.cart {
-  right: 32px;
 }
 
 .detail-content {
