@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Bag, Clock, LogOut, Utensils, Star, X } from '../components/Icons.jsx';
+import { Clock, LogOut, Utensils, Star, Wallet, X } from '../components/Icons.jsx';
 import { SmartImage } from '../components/SmartImage.jsx';
 import { useAuth } from '../lib/auth.jsx';
 import { useCart } from '../lib/cart.jsx';
@@ -106,7 +106,7 @@ export function HomePage() {
         </button>
 
         <button type="button" className="square-button blue" onClick={openCart} aria-label="Open cart">
-          <Bag size={22} />
+          <Wallet size={22} />
           {count > 0 && <span className="cart-count">{count}</span>}
         </button>
       </div>

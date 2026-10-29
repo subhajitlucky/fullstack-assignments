@@ -817,13 +817,26 @@ input:focus-visible {
 
 .promo-banner::before {
   position: absolute;
-  top: -24px;
-  left: 42%;
-  width: 90px;
-  height: 90px;
-  border: 10px solid rgba(255, 255, 255, 0.1);
+  top: -58px;
+  left: -70px;
+  width: 112px;
+  height: 112px;
+  border: 12px solid rgba(243, 233, 181, 0.28);
   border-radius: 50%;
   content: '';
+  pointer-events: none;
+}
+
+.promo-banner::after {
+  position: absolute;
+  bottom: -66px;
+  left: -60px;
+  width: 104px;
+  height: 104px;
+  border: 12px solid rgba(243, 233, 181, 0.2);
+  border-radius: 50%;
+  content: '';
+  pointer-events: none;
 }
 
 .promo-copy {
@@ -1953,7 +1966,7 @@ input:focus-visible {
 .search-field input {
   color: var(--ink);
   font-family: var(--font);
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .search-field input:focus,
@@ -1971,12 +1984,17 @@ input:focus-visible {
   border-radius: 10px;
 }
 
+.square-button svg {
+  width: 24px;
+  height: 24px;
+}
+
 .square-button.orange {
-  background: #fb7632;
+  background: linear-gradient(135deg, #ff8a5b 0%, #fb7632 60%, #f46c2d 100%);
 }
 
 .square-button.blue {
-  background: #3a9bd8;
+  background: linear-gradient(135deg, #65bce8, #3a9bd8);
 }
 
 .section {
@@ -2037,7 +2055,7 @@ input:focus-visible {
 .promo-banner {
   min-height: 134px;
   margin: 0;
-  padding: 16px 20px;
+  padding: 16px 28px;
   border-radius: 10px;
   background: var(--orange-deep);
 }
@@ -2091,11 +2109,11 @@ input:focus-visible {
 }
 
 .popular-section {
-  margin-top: 28px;
+  margin-top: 46px;
 }
 
 .popular-list {
-  gap: 18px;
+  gap: 10px;
 }
 
 .popular-card {
@@ -2111,7 +2129,7 @@ input:focus-visible {
 }
 
 .popular-copy {
-  padding-top: 2px;
+  padding-top: 10px;
 }
 
 .popular-top {
@@ -2134,16 +2152,17 @@ input:focus-visible {
 }
 
 .popular-address {
-  margin: 5px 0 6px;
+  margin: 5px 0 5px;
   color: #696969;
   font-family: var(--font);
-  font-size: 10px;
+  font-size: 11px;
+  line-height: 1.35;
 }
 
 .meta-row {
   gap: 12px;
   color: #696969;
-  font-size: 10px;
+  font-size: 10.5px;
 }
 
 .meta-row svg {
@@ -2156,7 +2175,7 @@ input:focus-visible {
 
 .popular-actions {
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .pill {

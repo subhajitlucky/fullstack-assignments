@@ -61,6 +61,16 @@ export function Bag({ size = 20, ...props }) {
   );
 }
 
+export function Wallet({ size = 22, ...props }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" {...base} {...props}>
+      <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H19v14H6.5A2.5 2.5 0 0 1 4 16.5v-9Z" />
+      <path d="M4 9h15" />
+      <path d="M16 13h2" />
+    </svg>
+  );
+}
+
 export function Star({ size = 16, ...props }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" {...props}>
